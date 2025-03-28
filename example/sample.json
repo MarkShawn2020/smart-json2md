@@ -1,0 +1,44 @@
+{
+  "website": {
+    "title": "My Awesome Website",
+    "description": "A demonstration of JSON to Markdown conversion",
+    "metadata": {
+      "author": "John Doe",
+      "created": "2023-12-01",
+      "keywords": ["json", "markdown", "conversion", "demo"]
+    },
+    "sections": [
+      {
+        "title": "Introduction",
+        "content": "This is an introduction to our amazing service."
+      },
+      {
+        "title": "Features",
+        "content": "Here are some of our great features.",
+        "items": ["Easy to use", "Powerful", "Customizable"]
+      },
+      {
+        "title": "Pricing",
+        "plans": [
+          {
+            "name": "Basic",
+            "price": 0,
+            "features": ["Limited usage", "Basic support"]
+          },
+          {
+            "name": "Pro",
+            "price": 9.99,
+            "features": ["Unlimited usage", "Priority support", "Advanced features"]
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "darkMode": true,
+      "notifications": {
+        "email": true,
+        "push": false
+      }
+    }
+  }
+} 
