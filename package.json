@@ -1,10 +1,10 @@
 {
-  "name": "json-to-markdown",
+  "name": "smart-json2md",
   "version": "1.0.0",
   "description": "Convert plain JSON files to hierarchical Markdown documents",
   "main": "dist/index.js",
   "bin": {
-    "json-to-markdown": "./dist/cli.js"
+    "smart-json2md": "./dist/cli.js"
   },
   "scripts": {
     "build": "tsc",
@@ -18,7 +18,10 @@
     "json",
     "markdown",
     "converter",
-    "cli"
+    "cli",
+    "hierarchical",
+    "structure",
+    "smart"
   ],
   "author": "",
   "license": "MIT",

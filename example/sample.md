@@ -28,9 +28,52 @@ John Doe
 
 ## sections
 
-- {"title":"Introduction","content":"This is an introduction to our amazing service."}
-- {"title":"Features","content":"Here are some of our great features.","items":["Easy to use","Powerful","Customizable"]}
-- {"title":"Pricing","plans":[{"name":"Basic","price":0,"features":["Limited usage","Basic support"]},{"name":"Pro","price":9.99,"features":["Unlimited usage","Priority support","Advanced features"]}]}
+### Introduction
+
+#### content
+
+This is an introduction to our amazing service.
+
+### Features
+
+#### content
+
+Here are some of our great features.
+
+#### items
+
+- Easy to use
+- Powerful
+- Customizable
+
+### Pricing
+
+#### plans
+
+##### Basic
+
+###### price
+
+0
+
+###### features
+
+- Limited usage
+- Basic support
+
+##### Pro
+
+###### price
+
+9.99
+
+###### features
+
+- Unlimited usage
+- Priority support
+- Advanced features
+
+
 
 ## settings
 

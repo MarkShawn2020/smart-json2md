@@ -12,7 +12,7 @@ const packageVersion = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8')).vers
 const program = new Command();
 
 program
-  .name('json-to-markdown')
+  .name('smart-json2md')
   .description('Convert JSON files to Markdown with automatic hierarchy')
   .version(packageVersion)
   .argument('<input>', 'Input JSON file path')

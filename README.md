@@ -1,4 +1,4 @@
-# json-to-markdown
+# smart-json2md
 
 A simple utility to convert plain JSON files to hierarchical Markdown documents with intelligent structuring.
 
@@ -15,25 +15,25 @@ A simple utility to convert plain JSON files to hierarchical Markdown documents 
 ## Installation
 
 ```bash
-npm install json-to-markdown
+npm install smart-json2md
 ```
 
 Or globally:
 
 ```bash
-npm install -g json-to-markdown
+npm install -g smart-json2md
 ```
 
 ## CLI Usage
 
 ```bash
-json-to-markdown input.json -o output.md
+smart-json2md input.json -o output.md
 ```
 
 ### Options
 
 ```
-Usage: json-to-markdown [options] <input>
+Usage: smart-json2md [options] <input>
 
 Convert JSON files to Markdown with automatic hierarchy
 
@@ -45,13 +45,15 @@ Options:
   -o, --output <output>  Output Markdown file path
   -t, --types            Include type information
   -l, --max-level <level>  Maximum heading level (1-6) (default: "6")
+  -n, --no-process-arrays  Disable intelligent array processing
+  -p, --pretty           Make output more readable with extra spacing
   -h, --help             display help for command
 ```
 
 ## Programmatic Usage
 
 ```javascript
-import { jsonToMarkdown, convertJsonFileToMarkdown } from 'json-to-markdown';
+import { jsonToMarkdown, convertJsonFileToMarkdown } from 'smart-json2md';
 
 // Convert a JSON object directly
 const json = {
