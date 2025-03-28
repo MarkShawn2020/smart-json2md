@@ -25,7 +25,6 @@ John Doe
 - conversion
 - demo
 
-
 ### sections
 
 #### Introduction
@@ -42,12 +41,10 @@ John Doe
   - Powerful
   - Customizable
 
-
 #### Pricing
 
 - **plans**:
   - Item:
-
         - **name**:
      Basic
         - **price**:
@@ -55,10 +52,7 @@ John Doe
         - **features**:
           - Limited usage
           - Basic support
-    
-
   - Item:
-
         - **name**:
      Pro
         - **price**:
@@ -67,9 +61,6 @@ John Doe
           - Unlimited usage
           - Priority support
           - Advanced features
-    
-
-
 
 ### settings
 

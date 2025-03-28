@@ -118,14 +118,13 @@ function processObject(
                   // Format as an object within the list
                   const subListMarker = options.useOrderedLists ? `${index + 1}. ` : '- ';
                   if (Object.keys(item).length > 0) {
+                    // Don't add a line break after "Item:"
                     lines.push(`${nestedIndent}${subListMarker}Item:`);
-                    lines.push('');
                     const processedItem = processObject(item, level + 2, options)
                       .split('\n')
                       .map(line => `${nestedIndent}  ${line}`)
                       .join('\n');
                     lines.push(processedItem);
-                    lines.push('');
                   }
                 } else {
                   // Format as a simple value within the list
@@ -133,8 +132,7 @@ function processObject(
                   lines.push(`${nestedIndent}${subListMarker}${item}`);
                 }
               });
-              // Add a blank line after the list
-              lines.push('');
+              // Don't add an additional blank line, it will be too much
             }
           } else {
             // Format arrays as lists
@@ -145,8 +143,7 @@ function processObject(
                 }
                 return `- ${item}`;
               }));
-              // Add a blank line after the list
-              lines.push('');
+              // No extra line needed here, the heading format will add it
             } else {
               // Nested lists within a list
               const nestedIndent = '  '.repeat(listDepth);
@@ -154,8 +151,7 @@ function processObject(
                 const subListMarker = options.useOrderedLists ? `${index + 1}. ` : '- ';
                 lines.push(`${nestedIndent}${subListMarker}${item}`);
               });
-              // Add a blank line after the list
-              lines.push('');
+              // No extra line needed here, the list processing will handle spacing
             }
           }
         } else {
@@ -275,9 +271,8 @@ function processArrayOfObjects(
             lines.push(processedItem);
           }
         } else {
-          // No identifier, just process the whole object
-          lines.push(`${indent}${listMarker}Item ${index + 1}:`);
-          lines.push('');
+          // No identifier, just process the whole object - don't add a line break after "Item:"
+          lines.push(`${indent}${listMarker}Item:`);
           const processedItem = processObject(item, level + 1, options)
             .split('\n')
             .map(line => `${indent}  ${line}`)
@@ -289,8 +284,7 @@ function processArrayOfObjects(
         lines.push(`${indent}${listMarker}${item}`);
       }
       
-      // Add a blank line after each list item
-      lines.push('');
+      // Don't add a blank line after each list item - it creates too much space
     });
   }
   

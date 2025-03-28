@@ -1,64 +1,64 @@
-## level1
+# level1
 
-### title
+## title
 
 First Level Document
 
-### description
+## description
 
 This is a deeply nested JSON document
 
-### level2
+## level2
 
-#### name
+### name
 
 Second Level
 
-#### level3
+### level3
 
-- **id**:
- third-level
-- **details**:
- Getting deeper
-- **level4**:
+#### id
 
-  - **timestamp**:
+third-level
+
+#### details
+
+Getting deeper
+
+#### level4
+
+1. **timestamp**:
  2025-03-28T12:00:00Z
-  - **level5**:
+1. **level5**:
 
-    - **status**:
+  2. **status**:
  active
-    - **level6**:
+  2. **level6**:
 
-      - **notes**:
+    3. **notes**:
  Very deep structure
-      - **level7**:
+    3. **level7**:
 
-        - **secret**:
+      4. **secret**:
  You found the treasure!
-        - **depth**:
+      4. **depth**:
  7
 
 
 
 
+## metadata
 
-
-### metadata
-
-#### version
+### version
 
 1.0.0
 
-#### created
+### created
 
 2025-03-28
 
-#### tags
+### tags
 
 - example
 - deep
 - nested
 - structure
-
-
