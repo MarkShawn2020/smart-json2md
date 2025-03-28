@@ -78,6 +78,10 @@ function processObject(
   for (const [key, value] of Object.entries(obj)) {
     if (isWithinHeadingLevels) {
       // Use headings for this level
+      // Add a blank line before each heading (except the first one if lines is empty)
+      if (lines.length > 0) {
+        lines.push('');
+      }
       lines.push(`${'#'.repeat(headingLevel)} ${key}`);
       lines.push('');
     } else {
@@ -109,7 +113,6 @@ function processObject(
             } else {
               // If we're in list mode, each array item gets its own sub-list
               const nestedIndent = '  '.repeat(listDepth);
-              lines.push('');
               value.forEach((item, index) => {
                 if (typeof item === 'object' && item !== null) {
                   // Format as an object within the list
@@ -130,6 +133,8 @@ function processObject(
                   lines.push(`${nestedIndent}${subListMarker}${item}`);
                 }
               });
+              // Add a blank line after the list
+              lines.push('');
             }
           } else {
             // Format arrays as lists
@@ -140,14 +145,17 @@ function processObject(
                 }
                 return `- ${item}`;
               }));
+              // Add a blank line after the list
+              lines.push('');
             } else {
               // Nested lists within a list
               const nestedIndent = '  '.repeat(listDepth);
-              lines.push('');
               value.forEach((item, index) => {
                 const subListMarker = options.useOrderedLists ? `${index + 1}. ` : '- ';
                 lines.push(`${nestedIndent}${subListMarker}${item}`);
               });
+              // Add a blank line after the list
+              lines.push('');
             }
           }
         } else {
@@ -163,7 +171,9 @@ function processObject(
       }
     }
     
-    if (isWithinHeadingLevels) lines.push('');
+    // We don't need to add an extra blank line after each property
+    // because the next property will either add a blank line before its heading
+    // or it's a list item which doesn't need a blank line before it
   }
   
   return lines.join('\n');
@@ -206,6 +216,10 @@ function processArrayOfObjects(
   if (identifierField && isWithinHeadingLevels) {
     // If we have identified a common identifier field, use it for structure (in heading mode)
     arr.forEach((item, index) => {
+      // Add a blank line before each heading (except the first one if lines is empty)
+      if (lines.length > 0) {
+        lines.push('');
+      }
       // Use the identifier field as a subheading
       const identifier = item[identifierField as string];
       lines.push(`${'#'.repeat(headingLevel)} ${identifier}`);
@@ -222,6 +236,10 @@ function processArrayOfObjects(
   } else if (isWithinHeadingLevels) {
     // Default handling for arrays of objects without common identifier (in heading mode)
     arr.forEach((item, index) => {
+      // Add a blank line before each heading (except the first one if lines is empty)
+      if (lines.length > 0) {
+        lines.push('');
+      }
       lines.push(`${'#'.repeat(headingLevel)} Item ${index + 1}`);
       lines.push('');
       
@@ -229,7 +247,6 @@ function processArrayOfObjects(
         lines.push(processObject(item, level + 1, options));
       } else {
         lines.push(`${item}`);
-        lines.push('');
       }
     });
   } else {
@@ -272,6 +289,7 @@ function processArrayOfObjects(
         lines.push(`${indent}${listMarker}${item}`);
       }
       
+      // Add a blank line after each list item
       lines.push('');
     });
   }

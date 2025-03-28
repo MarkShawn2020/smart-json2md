@@ -32,19 +32,20 @@ John Doe
 
 - **content**:
  This is an introduction to our amazing service.
+
 #### Features
 
 - **content**:
  Here are some of our great features.
 - **items**:
-
   - Easy to use
   - Powerful
   - Customizable
+
+
 #### Pricing
 
 - **plans**:
-
   - Item:
 
         - **name**:
@@ -52,9 +53,9 @@ John Doe
         - **price**:
      0
         - **features**:
-    
           - Limited usage
           - Basic support
+    
 
   - Item:
 
@@ -63,10 +64,11 @@ John Doe
         - **price**:
      9.99
         - **features**:
-    
           - Unlimited usage
           - Priority support
           - Advanced features
+    
+
 
 
 ### settings
@@ -81,5 +83,3 @@ true
  true
 - **push**:
  false
-
-
