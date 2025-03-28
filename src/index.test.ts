@@ -62,8 +62,8 @@ describe('jsonToMarkdown', () => {
     expect(result).toContain('# level1');
     expect(result).toContain('## level2');
     expect(result).toContain('### level3');
-    expect(result).toContain('### level4');  // Should be capped at level 3
-    expect(result).toContain('### level5');  // Should be capped at level 3
+    expect(result).toContain('**level4**:');
+    expect(result).toContain('**level5**:');
     expect(result).toContain('deep value');
   });
   
