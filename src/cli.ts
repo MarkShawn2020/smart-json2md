@@ -19,8 +19,10 @@ program
   .option('-o, --output <output>', 'Output Markdown file path')
   .option('-t, --types', 'Include type information')
   .option('-l, --max-level <level>', 'Maximum heading level (1-6)', '6')
+  .option('-m, --min-level <level>', 'Minimum heading level (1-6)', '1')
   .option('-n, --no-process-arrays', 'Disable intelligent array processing')
   .option('-p, --pretty', 'Make output more readable with extra spacing')
+  .option('-r, --ordered-lists', 'Use ordered lists for content beyond max heading level')
   .action(async (input, options) => {
     try {
       // Validate input file exists
@@ -37,13 +39,34 @@ program
         outputFile = path.join(path.dirname(input), `${basename}.md`);
       }
 
+      // Validate heading levels
+      const minLevel = parseInt(options.minLevel);
+      const maxLevel = parseInt(options.maxLevel);
+      
+      if (minLevel < 1 || minLevel > 6) {
+        console.error('Error: Minimum heading level must be between 1 and 6');
+        process.exit(1);
+      }
+      
+      if (maxLevel < 1 || maxLevel > 6) {
+        console.error('Error: Maximum heading level must be between 1 and 6');
+        process.exit(1);
+      }
+      
+      if (minLevel > maxLevel) {
+        console.error('Error: Minimum heading level cannot be greater than maximum heading level');
+        process.exit(1);
+      }
+
       console.log(`Converting ${input} to ${outputFile}...`);
 
       // Setup conversion options
       const conversionOptions: JsonToMarkdownOptions = {
         includeTypes: options.types,
-        maxHeadingLevel: parseInt(options.maxLevel),
-        processArrayObjects: options.processArrays
+        minHeadingLevel: minLevel,
+        maxHeadingLevel: maxLevel,
+        processArrayObjects: options.processArrays,
+        useOrderedLists: options.orderedLists
       };
 
       if (options.pretty) {

@@ -1,24 +1,24 @@
-# website
+## website
 
-## title
+### title
 
 My Awesome Website
 
-## description
+### description
 
 A demonstration of JSON to Markdown conversion
 
-## metadata
+### metadata
 
-### author
+#### author
 
 John Doe
 
-### created
+#### created
 
 2023-12-01
 
-### keywords
+#### keywords
 
 - json
 - markdown
@@ -26,70 +26,60 @@ John Doe
 - demo
 
 
-## sections
+### sections
 
-### Introduction
+#### Introduction
 
-#### content
+- **content**:
+ This is an introduction to our amazing service.
+#### Features
 
-This is an introduction to our amazing service.
+- **content**:
+ Here are some of our great features.
+- **items**:
 
-### Features
+  - Easy to use
+  - Powerful
+  - Customizable
+#### Pricing
 
-#### content
+- **plans**:
 
-Here are some of our great features.
+  - Item:
 
-#### items
+        - **name**:
+     Basic
+        - **price**:
+     0
+        - **features**:
+    
+          - Limited usage
+          - Basic support
 
-- Easy to use
-- Powerful
-- Customizable
+  - Item:
 
-### Pricing
-
-#### plans
-
-##### Basic
-
-###### price
-
-0
-
-###### features
-
-- Limited usage
-- Basic support
-
-##### Pro
-
-###### price
-
-9.99
-
-###### features
-
-- Unlimited usage
-- Priority support
-- Advanced features
+        - **name**:
+     Pro
+        - **price**:
+     9.99
+        - **features**:
+    
+          - Unlimited usage
+          - Priority support
+          - Advanced features
 
 
+### settings
 
-## settings
-
-### darkMode
+#### darkMode
 
 true
 
-### notifications
+#### notifications
 
-#### email
-
-true
-
-#### push
-
-false
-
+- **email**:
+ true
+- **push**:
+ false
 
 

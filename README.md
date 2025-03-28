@@ -6,9 +6,11 @@ A simple utility to convert plain JSON files to hierarchical Markdown documents 
 
 - Automatically converts JSON objects to Markdown with headings based on hierarchy
 - Supports nested objects with appropriate heading levels
+- Handles deep structures by converting to lists when exceeding configured heading levels
 - Arrays are displayed as Markdown lists
 - Intelligently processes arrays of objects with common structure
-- Configurable maximum heading level
+- Configurable minimum and maximum heading levels
+- Option to use ordered or unordered lists for deep structures
 - Option to include type information for values
 - Easy to use CLI and programmatic API
 
@@ -45,8 +47,10 @@ Options:
   -o, --output <output>  Output Markdown file path
   -t, --types            Include type information
   -l, --max-level <level>  Maximum heading level (1-6) (default: "6")
+  -m, --min-level <level>  Minimum heading level (1-6) (default: "1")
   -n, --no-process-arrays  Disable intelligent array processing
   -p, --pretty           Make output more readable with extra spacing
+  -r, --ordered-lists    Use ordered lists for content beyond max heading level
   -h, --help             display help for command
 ```
 
@@ -62,7 +66,15 @@ const json = {
     age: 30,
     address: {
       street: '123 Main St',
-      city: 'Anytown'
+      city: 'Anytown',
+      location: {
+        latitude: 40.7128,
+        longitude: -74.0060,
+        details: {
+          region: 'Northeast',
+          country: 'USA'
+        }
+      }
     },
     hobbies: ['reading', 'hiking', 'coding'],
     contacts: [
@@ -72,81 +84,80 @@ const json = {
   }
 };
 
+// Basic conversion
 const markdown = jsonToMarkdown(json);
 console.log(markdown);
 
-// Or convert a file
+// Advanced options
+const advancedMarkdown = jsonToMarkdown(json, {
+  minHeadingLevel: 2,      // Start with h2 headings instead of h1
+  maxHeadingLevel: 4,      // Only use headings up to h4
+  includeTypes: true,      // Include data types
+  useOrderedLists: true,   // Use numbered lists for deep structures
+  processArrayObjects: true // Enabled by default
+});
+console.log(advancedMarkdown);
+
+// Convert a file
 await convertJsonFileToMarkdown('input.json', 'output.md', {
-  includeTypes: true,
+  minHeadingLevel: 1,
   maxHeadingLevel: 4,
-  processArrayObjects: true // enabled by default
+  useOrderedLists: true
 });
 ```
 
-## Example
+## Example: Deep Structure Handling
 
-Given this JSON:
+Given a deeply nested JSON:
 
 ```json
 {
-  "blog": {
-    "title": "My Technical Blog",
-    "author": "Jane Smith",
-    "posts": [
-      {
-        "title": "Getting Started with JSON",
-        "date": "2023-01-01",
-        "content": "JSON is a lightweight data format..."
-      },
-      {
-        "title": "Converting JSON to Markdown",
-        "date": "2023-02-01",
-        "content": "In this post, we'll explore..."
+  "level1": {
+    "level2": {
+      "level3": {
+        "level4": {
+          "level5": {
+            "level6": {
+              "level7": "This is very deep"
+            }
+          }
+        }
       }
-    ]
+    }
   }
 }
 ```
 
-The resulting Markdown will be:
+With `maxHeadingLevel: 4` and `useOrderedLists: true`, the result will be:
 
 ```markdown
-# blog
+# level1
 
-## title
-My Technical Blog
+## level2
 
-## author
-Jane Smith
+### level3
 
-## posts
+#### level4
 
-### Getting Started with JSON
+1. **level5**:
+  
+  1. **level6**:
+    
+    1. **level7**: This is very deep
 
-#### date
-2023-01-01
-
-#### content
-JSON is a lightweight data format...
-
-### Converting JSON to Markdown
-
-#### date
-2023-02-01
-
-#### content
-In this post, we'll explore...
 ```
 
-Notice how the array of post objects is intelligently processed using the "title" field as subheadings.
+Notice how levels beyond the 4th (max heading level) automatically convert to ordered lists.
 
 ## Advanced Options
 
 The library provides several options for customizing the conversion:
 
-- `maxHeadingLevel`: Limit the maximum heading level (1-6)
+- `minHeadingLevel`: Starting heading level (1-6, default: 1)
+- `maxHeadingLevel`: Maximum heading level (1-6, default: 6)
 - `includeTypes`: Add type information for values
 - `processArrayObjects`: Enable smart processing of arrays containing objects
+- `useOrderedLists`: Use numbered lists instead of bullet points for deep structures
 - `valueFormatter`: Custom function to format specific values
 
 ## License
