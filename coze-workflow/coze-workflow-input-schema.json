@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "jsonContent": {
+      "type": ["object", "string"],
+      "title": "JSON内容",
+      "description": "要转换的JSON内容（字符串或对象）"
+    },
+    "minHeadingLevel": {
+      "type": "number",
+      "title": "最小标题级别",
+      "description": "标题的最小级别（1-6）",
+      "default": 1,
+      "minimum": 1,
+      "maximum": 6
+    },
+    "maxHeadingLevel": {
+      "type": "number",
+      "title": "最大标题级别",
+      "description": "标题的最大级别（1-6），超过此级别将使用列表",
+      "default": 6,
+      "minimum": 1,
+      "maximum": 6
+    },
+    "includeTypes": {
+      "type": "boolean",
+      "title": "包含类型信息",
+      "description": "是否在输出中包含数据类型信息",
+      "default": false
+    },
+    "useOrderedLists": {
+      "type": "boolean",
+      "title": "使用有序列表",
+      "description": "超出标题级别时是否使用有序列表（数字编号）",
+      "default": false
+    }
+  },
+  "required": ["jsonContent"]
+} 

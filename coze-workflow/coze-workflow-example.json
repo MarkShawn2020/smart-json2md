@@ -1,0 +1,39 @@
+{
+  "inputs": {
+    "jsonContent": {
+      "blog": {
+        "title": "我的技术博客",
+        "author": "张三",
+        "posts": [
+          {
+            "title": "JSON入门",
+            "date": "2023-01-01",
+            "content": "JSON是一种轻量级数据格式..."
+          },
+          {
+            "title": "将JSON转为Markdown",
+            "date": "2023-02-01",
+            "content": "在本文中，我们将探讨..."
+          }
+        ],
+        "settings": {
+          "theme": "dark",
+          "comments": true,
+          "sidebar": {
+            "recent": true,
+            "popular": false
+          }
+        }
+      }
+    },
+    "minHeadingLevel": 1,
+    "maxHeadingLevel": 4,
+    "includeTypes": false,
+    "useOrderedLists": true
+  },
+  "expectedOutput": {
+    "code": 200,
+    "data": "# blog\n\n## title\n\n我的技术博客\n\n## author\n\n张三\n\n## posts\n\n### JSON入门\n\n#### date\n\n2023-01-01\n\n#### content\n\nJSON是一种轻量级数据格式...\n\n### 将JSON转为Markdown\n\n#### date\n\n2023-02-01\n\n#### content\n\n在本文中，我们将探讨...\n\n## settings\n\n### theme\n\ndark\n\n### comments\n\ntrue\n\n### sidebar\n\n1. **recent**:\n true\n1. **popular**:\n false",
+    "message": "转换成功"
+  }
+} 
