@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 渐变背景 -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f9fa" />
+      <stop offset="100%" stop-color="#e9ecef" />
+    </linearGradient>
+    <linearGradient id="json-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4361ee" />
+      <stop offset="100%" stop-color="#3a0ca3" />
+    </linearGradient>
+    <linearGradient id="md-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4cc9f0" />
+      <stop offset="100%" stop-color="#4895ef" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect x="10" y="10" width="180" height="180" rx="20" ry="20" fill="url(#bg-gradient)" />
+  
+  <!-- 两侧的卡片 -->
+  <rect x="25" y="50" width="65" height="100" rx="8" ry="8" fill="white" filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.1))" />
+  <rect x="110" y="50" width="65" height="100" rx="8" ry="8" fill="white" filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.1))" />
+  
+  <!-- JSON符号 -->
+  <text x="40" y="105" font-family="Monaco, Consolas, monospace" font-size="32" font-weight="bold" fill="url(#json-gradient)">{ }</text>
+  
+  <!-- 转换箭头 -->
+  <path d="M95,100 L105,100 M101,96 L105,100 L101,104" 
+        stroke="#6c757d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Markdown符号 -->
+  <text x="125" y="105" font-family="Monaco, Consolas, monospace" font-size="32" font-weight="bold" fill="url(#md-gradient)">#-</text>
+  
+  <!-- 底部文字 -->
+  <text x="100" y="170" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#495057">JSON2MD</text>
+</svg> 

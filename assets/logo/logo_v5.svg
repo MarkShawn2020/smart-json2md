@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义更鲜明的渐变 -->
+  <defs>
+    <linearGradient id="primary-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0099" />
+      <stop offset="100%" stop-color="#493bec" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 更鲜明的背景 -->
+  <rect x="0" y="0" width="200" height="200" fill="#f0f0ff" />
+  
+  <!-- 中心圆形 -->
+  <circle cx="100" cy="100" r="70" fill="white" filter="url(#shadow)" />
+  
+  <!-- 左侧 JSON 图标 - 更鲜明的背景 -->
+  <rect x="65" y="70" width="30" height="60" rx="4" fill="#f0f0ff" stroke="#493bec" stroke-width="1" />
+  <text x="70" y="106" font-family="'Courier New', monospace" font-size="18" font-weight="bold" fill="url(#primary-gradient)">{ }</text>
+  
+  <!-- 右侧 Markdown 图标 - 更鲜明的背景 -->
+  <rect x="105" y="70" width="30" height="60" rx="4" fill="#f0f0ff" stroke="#493bec" stroke-width="1" />
+  <text x="111" y="106" font-family="'Courier New', monospace" font-size="18" font-weight="bold" fill="url(#primary-gradient)">#-</text>
+  
+  <!-- 连接线 - 更粗更鲜明 -->
+  <line x1="95" y1="100" x2="105" y2="100" stroke="url(#primary-gradient)" stroke-width="3" />
+  
+  <!-- 标题 - 使用渐变色 -->
+  <text x="100" y="150" font-family="'Arial', sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="url(#primary-gradient)">JSON2MD</text>
+  
+  <!-- 装饰线条 - 更粗更鲜明 -->
+  <line x1="70" y1="155" x2="130" y2="155" stroke="url(#primary-gradient)" stroke-width="3" />
+</svg> 

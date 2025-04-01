@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变和阴影 -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6c5ce7" />
+      <stop offset="100%" stop-color="#a29bfe" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="200" height="200" fill="#ffffff" />
+  
+  <!-- 主体 -->
+  <g transform="translate(40, 40)">
+    <!-- 左侧JSON符号 -->
+    <rect x="0" y="0" width="50" height="120" rx="6" fill="#f9f9f9" stroke="#eaeaea" stroke-width="1" />
+    <text x="12" y="65" font-family="'SF Mono', 'Menlo', monospace" font-size="26" font-weight="bold" fill="url(#gradient)">{ }</text>
+    
+    <!-- 中间箭头 -->
+    <g transform="translate(60, 60)">
+      <line x1="0" y1="0" x2="20" y2="0" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" />
+      <polygon points="15,-5 25,0 15,5" fill="url(#gradient)" />
+    </g>
+    
+    <!-- 右侧Markdown符号 -->
+    <rect x="90" y="0" width="50" height="120" rx="6" fill="#f9f9f9" stroke="#eaeaea" stroke-width="1" />
+    <text x="102" y="65" font-family="'SF Mono', 'Menlo', monospace" font-size="26" font-weight="bold" fill="url(#gradient)">#_</text>
+  </g>
+  
+  <!-- 底部文字 -->
+  <text x="100" y="175" font-family="'Helvetica Neue', 'Arial', sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2d3436">JSON2MD</text>
+</svg> 

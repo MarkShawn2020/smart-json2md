@@ -1,0 +1,28 @@
+{
+  "jsonData": "{\"documentation\":{\"title\":\"API Documentation\",\"version\":\"1.0.0\",\"description\":\"Complete API reference for our service\",\"endpoints\":[{\"path\":\"/users\",\"method\":\"GET\",\"description\":\"Retrieve a list of users\",\"parameters\":[{\"name\":\"limit\",\"type\":\"integer\",\"required\":false,\"description\":\"Maximum number of results\"},{\"name\":\"offset\",\"type\":\"integer\",\"required\":false,\"description\":\"Number of results to skip\"}],\"responses\":{\"200\":{\"description\":\"Success\",\"contentType\":\"application/json\"},\"400\":{\"description\":\"Bad Request\",\"contentType\":\"application/json\"}}},{\"path\":\"/users/{id}\",\"method\":\"GET\",\"description\":\"Retrieve a single user\",\"parameters\":[{\"name\":\"id\",\"type\":\"string\",\"required\":true,\"description\":\"User ID\"}],\"responses\":{\"200\":{\"description\":\"Success\",\"contentType\":\"application/json\"},\"404\":{\"description\":\"User not found\",\"contentType\":\"application/json\"}}}]}}",
+  "options": {
+    "minHeadingLevel": 1,
+    "maxHeadingLevel": 4,
+    "includeTypes": false,
+    "processArrayObjects": true,
+    "useOrderedLists": true
+  }
+}
+
+// 示例输出 (成功):
+/*
+{
+  "code": 200,
+  "data": "# documentation\n\n## title\n\nAPI Documentation\n\n...",
+  "message": "转换成功"
+}
+*/
+
+// 示例输出 (错误):
+/*
+{
+  "code": 400,
+  "data": null,
+  "message": "无法解析JSON字符串: Unexpected token in JSON at position 5"
+}
+*/ 
